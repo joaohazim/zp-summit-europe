@@ -38,11 +38,7 @@ export async function saveSignup(data: Omit<SignupFormData, 'created_at'>) {
       data.gdprConsent
     ]
     
-    console.log('Executando query:', query)
-    console.log('Com valores:', values)
-    
     const result = await client.query(query, values)
-    console.log('Resultado:', result.rows[0])
     return result.rows[0]
     
   } catch (error) {
