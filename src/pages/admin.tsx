@@ -1,5 +1,3 @@
-'use client'
-
 import { useState, useEffect } from 'react'
 
 interface Signup {
@@ -183,6 +181,19 @@ export default function AdminPage() {
             >
               Atualizar
             </button>
+            <a 
+              href="/"
+              style={{
+                padding: '12px 24px',
+                background: '#ccc',
+                color: '#333',
+                textDecoration: 'none',
+                borderRadius: '8px',
+                display: 'inline-block'
+              }}
+            >
+              Voltar ao Site
+            </a>
           </div>
         </div>
       </div>
