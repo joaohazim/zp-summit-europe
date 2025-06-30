@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { saveSignup } from '@/lib/supabase'
+import { saveSignup } from '@/lib/supabase-simple'
 
 export async function POST(request: NextRequest) {
   try {
