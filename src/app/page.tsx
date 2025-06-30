@@ -1,3 +1,6 @@
+'use client'
+
+import { useSearchParams } from 'next/navigation'
 import { HeroSection } from "@/components/sections/hero";
 import { WhySpainSection } from "@/components/sections/why-spain";
 import { AgendaSection } from "@/components/sections/agenda";
@@ -5,10 +8,12 @@ import { CompaniesSection } from "@/components/sections/companies";
 import { SignupFormSection } from "@/components/sections/signup-form";
 import { AdminDashboard } from "@/components/admin-dashboard";
 
-export default function Home({ searchParams }: { searchParams: { admin?: string } }) {
+export default function Home() {
+  const searchParams = useSearchParams()
+  const isAdmin = searchParams.get('admin') !== null
   
   // Se tem ?admin na URL, mostra o dashboard
-  if (searchParams?.admin !== undefined) {
+  if (isAdmin) {
     return <AdminDashboard />
   }
 
