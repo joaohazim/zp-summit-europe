@@ -12,8 +12,17 @@ export default function Home() {
   const searchParams = useSearchParams()
   const isAdmin = searchParams.get('admin') !== null
   
+  // Debug temporário
+  console.log('Admin param:', searchParams.get('admin'))
+  console.log('Is admin:', isAdmin)
+  console.log('URL:', typeof window !== 'undefined' ? window.location.href : 'server')
+  
+  // Teste direto com window.location também
+  const isAdminDirect = typeof window !== 'undefined' && window.location.search.includes('admin')
+  console.log('Is admin direct:', isAdminDirect)
+  
   // Se tem ?admin na URL, mostra o dashboard
-  if (isAdmin) {
+  if (isAdmin || isAdminDirect) {
     return <AdminDashboard />
   }
 
