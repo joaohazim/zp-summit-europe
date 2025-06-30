@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { saveSignup } from '@/lib/supabase'
+import { saveSignup } from '@/lib/database'
 
 export async function POST(request: NextRequest) {
   try {
@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Salvar no Supabase
+    // Salvar no PostgreSQL
     const result = await saveSignup({
       name,
       email,
