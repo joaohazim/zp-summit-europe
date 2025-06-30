@@ -3,8 +3,14 @@ import { WhySpainSection } from "@/components/sections/why-spain";
 import { AgendaSection } from "@/components/sections/agenda";
 import { CompaniesSection } from "@/components/sections/companies";
 import { SignupFormSection } from "@/components/sections/signup-form";
+import { AdminDashboard } from "@/components/admin-dashboard";
 
-export default function Home() {
+export default function Home({ searchParams }: { searchParams: { admin?: string } }) {
+  
+  // Se tem ?admin na URL, mostra o dashboard
+  if (searchParams?.admin !== undefined) {
+    return <AdminDashboard />
+  }
 
   return (
     <main className="min-h-screen">

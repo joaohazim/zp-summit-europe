@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useEffect } from 'react'
 
 interface Signup {
@@ -12,7 +14,7 @@ interface Signup {
   created_at: string
 }
 
-export default function AdminPage() {
+export function AdminDashboard() {
   const [signups, setSignups] = useState<Signup[]>([])
   const [loading, setLoading] = useState(true)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -97,6 +99,18 @@ export default function AdminPage() {
           >
             Entrar
           </button>
+          <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+            <a 
+              href="/"
+              style={{
+                color: '#667eea',
+                textDecoration: 'none',
+                fontSize: '14px'
+              }}
+            >
+              ← Voltar ao site
+            </a>
+          </div>
         </div>
       </div>
     )
@@ -132,12 +146,29 @@ export default function AdminPage() {
           padding: '2rem',
           boxShadow: '0 10px 25px rgba(0,0,0,0.1)'
         }}>
-          <h1 style={{ color: '#333', marginBottom: '0.5rem' }}>
-            Dashboard ZP Summit
-          </h1>
-          <p style={{ color: '#666', marginBottom: '2rem' }}>
-            Total de inscrições: {signups.length}
-          </p>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+            <div>
+              <h1 style={{ color: '#333', marginBottom: '0.5rem' }}>
+                Dashboard ZP Summit
+              </h1>
+              <p style={{ color: '#666' }}>
+                Total de inscrições: {signups.length}
+              </p>
+            </div>
+            <a 
+              href="/"
+              style={{
+                padding: '8px 16px',
+                background: '#ccc',
+                color: '#333',
+                textDecoration: 'none',
+                borderRadius: '6px',
+                fontSize: '14px'
+              }}
+            >
+              ← Voltar ao site
+            </a>
+          </div>
 
           <div style={{ overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
@@ -175,25 +206,11 @@ export default function AdminPage() {
                 color: 'white',
                 border: 'none',
                 borderRadius: '8px',
-                cursor: 'pointer',
-                marginRight: '1rem'
+                cursor: 'pointer'
               }}
             >
               Atualizar
             </button>
-            <a 
-              href="/"
-              style={{
-                padding: '12px 24px',
-                background: '#ccc',
-                color: '#333',
-                textDecoration: 'none',
-                borderRadius: '8px',
-                display: 'inline-block'
-              }}
-            >
-              Voltar ao Site
-            </a>
           </div>
         </div>
       </div>
