@@ -13,6 +13,7 @@ import {
   SelectValue 
 } from "@/components/ui/select";
 import { ArrowRight, Shield, CheckCircle, Target, Euro, Globe, Construction, Smartphone, Rocket, AlertCircle } from "lucide-react";
+import { trackFormSubmission } from "@/lib/analytics";
 
 export function SignupFormSection() {
   const [formData, setFormData] = useState({
@@ -48,6 +49,9 @@ export function SignupFormSection() {
       const result = await response.json();
 
       if (response.ok) {
+        // Track successful form submission
+        trackFormSubmission('ZP Summit Signup Form');
+        
         setSubmitStatus({
           type: 'success',
           message: 'Inscrição realizada com sucesso! Entraremos em contato em breve.'
