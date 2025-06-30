@@ -3,7 +3,6 @@ import { Pool } from 'pg'
 // Configuração do PostgreSQL
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL || 'postgresql://admin:zpsummit2024@localhost:5432/zpsummit',
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
 })
 
 // Tipos para o formulário
@@ -39,7 +38,11 @@ export async function saveSignup(data: Omit<SignupFormData, 'created_at'>) {
       data.gdprConsent
     ]
     
+    console.log('Executando query:', query)
+    console.log('Com valores:', values)
+    
     const result = await client.query(query, values)
+    console.log('Resultado:', result.rows[0])
     return result.rows[0]
     
   } catch (error) {
