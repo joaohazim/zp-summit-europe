@@ -22,18 +22,19 @@ export interface SignupFormData {
 
 // Função para salvar lead no Supabase
 export async function saveSignup(data: Omit<SignupFormData, 'created_at'>) {
-  // Verificar se Supabase está configurado
-  if (!isSupabaseConfigured) {
-    console.warn('Supabase não configurado. Dados seriam salvos:', data)
-    return [{ id: 'demo-id', ...data, created_at: new Date().toISOString() }]
-  }
-
   try {
+    // Sempre tentar salvar no Supabase
     const { data: result, error } = await supabase
       .from('signups')
       .insert([
         {
-          ...data,
+          name: data.name,
+          email: data.email,
+          country: data.country,
+          profession: data.profession,
+          interest: data.interest,
+          motivation: data.motivation || '',
+          gdpr_consent: data.gdprConsent,
           created_at: new Date().toISOString()
         }
       ])
