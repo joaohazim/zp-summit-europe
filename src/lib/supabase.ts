@@ -1,10 +1,10 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co'
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key'
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://xjsseshibdovuywxdmgy.supabase.co'
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhqc3Nlc2hpYmRvdnV5d3hkbWd5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTEzMTE1NDYsImV4cCI6MjA2Njg4NzU0Nn0.M8OAyTyPcZYsq7pCh-_B04ZgdimL3FuLw5xJi6XGIng'
 
 // Verificar se as variáveis estão configuradas
-const isSupabaseConfigured = supabaseUrl !== 'https://placeholder.supabase.co' && supabaseAnonKey !== 'placeholder-key'
+const isSupabaseConfigured = supabaseUrl !== 'https://placeholder.supabase.co'
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
