@@ -1,0 +1,16 @@
+{
+  "projectSettings": {
+    "name": "zp-summit-europe",
+    "framework": "nextjs"
+  },
+  "env": {
+    "NEXT_PUBLIC_SUPABASE_URL": "@supabase-url",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@supabase-anon-key"
+  },
+  "regions": ["fra1"],
+  "functions": {
+    "app/api/signup/route.ts": {
+      "maxDuration": 10
+    }
+  }
+}
